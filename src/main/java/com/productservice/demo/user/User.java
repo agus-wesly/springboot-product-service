@@ -13,17 +13,19 @@ public class User {
     @Column(columnDefinition = "UUID")
     private UUID id;
 
-    @Column(name = "email")
     @NotBlank
     private String email;
 
-    @Column(name = "password")
     @NotBlank
     private String password;
 
-    @Column(name = "username")
     @NotBlank
     private String username;
+
+    private String token;
+
+    @Column(name = "token_expired_at")
+    private Long tokenExpiredAt;
 
     public UUID getId() {
         return id;
@@ -54,5 +56,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Long getTokenExpiredAt() {
+        return tokenExpiredAt;
+    }
+
+    public void setTokenExpiredAt(Long tokenExpiredAt) {
+        this.tokenExpiredAt = tokenExpiredAt;
     }
 }

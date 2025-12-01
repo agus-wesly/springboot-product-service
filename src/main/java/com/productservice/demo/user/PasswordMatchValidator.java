@@ -8,9 +8,10 @@ public class PasswordMatchValidator implements ConstraintValidator<PasswordMatch
     public boolean isValid(RegisterRequest value, ConstraintValidatorContext context) {
         if (value == null) return true;
 
-        System.out.println("RUNNING VALIDATIONNNN");
-
-        return value.getPassword() != null && value.getPassword() == value.getConfirmPassword();
+        var password = value.getPassword();
+        var confirm = value.getConfirmPassword();
+        
+        return password != null && password.equals(confirm);
     }
     
 }
